@@ -22,7 +22,7 @@ package edu.eci.arsw.collabhangman.model.game;
  */
 public class HangmanGame {
     
-    private final String word;
+    protected final String word;
     private char[] guessedWord;
     private String winner="";
     private boolean gameFinished=false;

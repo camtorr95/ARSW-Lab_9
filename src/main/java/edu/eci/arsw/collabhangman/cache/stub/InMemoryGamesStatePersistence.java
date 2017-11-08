@@ -20,14 +20,14 @@ import edu.eci.arsw.collabhangman.model.game.HangmanGame;
 import edu.eci.arsw.collabhangman.services.GameCreationException;
 import edu.eci.arsw.collabhangman.services.GameServicesException;
 import java.util.concurrent.ConcurrentHashMap;
-import org.springframework.stereotype.Service;
+//import org.springframework.stereotype.Service;
 import edu.eci.arsw.collabhangman.cache.GameStateCache;
 
 /**
  *
  * @author hcadavid
  */
-@Service
+
 public class InMemoryGamesStatePersistence implements GameStateCache{
     
     private final ConcurrentHashMap<Integer,HangmanGame> gamesState;

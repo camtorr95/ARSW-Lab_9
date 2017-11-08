@@ -30,19 +30,19 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
-
+    
     @Value("${relayHost}")
     private String relayHost;
     
     @Value("${relayPort}")
-    private int relayPort;
+    private String relayPort;
     
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
-        config.enableStompBrokerRelay("/topic").setRelayHost(relayHost).setRelayPort(relayPort);
+        config.enableStompBrokerRelay("/topic").setRelayHost(relayHost).setRelayPort(Integer.parseInt(relayPort));
         config.setApplicationDestinationPrefixes("/app");
     }
-
+    
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/stompendpoint").setAllowedOrigins("*").withSockJS();
